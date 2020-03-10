@@ -48,7 +48,7 @@ module JoinDependency
           relation.send(:custom_join_ast, relation.table.from(relation.table), string_joins)
         end
 
-      if exactly?(5, 2, 0)
+      if exactly?(5, 2, 0) || at_least?(6, 0, 0)
         alias_tracker = ::ActiveRecord::Associations::AliasTracker.create(relation.klass.connection, relation.table.name, join_list)
         join_dependency = ::ActiveRecord::Associations::JoinDependency.new(relation.klass, relation.table, association_joins, alias_tracker)
         join_nodes.each do |join|
